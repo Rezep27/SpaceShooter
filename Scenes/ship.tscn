@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d168mubqnqkj"]
+
+[ext_resource type="Script" uid="uid://d3v3jeilfpcbp" path="res://Scripts/ship.gd" id="1_4qyt1"]
+[ext_resource type="Texture2D" uid="uid://de1te68e4h2q0" path="res://Assets/Space Pack/Ships/Spaceship_1.png" id="1_78pfh"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_4qyt1")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -227)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_78pfh")
+
+[node name="ShotCD" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="ShotCD" to="." method="_on_shot_cd_timeout"]
